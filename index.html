@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ATAVA Digital Services & Trading | Kerala & UAE</title>
-    <!-- Browser Tab Icon (Favicon) -->
     <link rel="icon" type="image/jpeg" href="logo.jpg">
     <style>
         :root {
@@ -33,10 +32,9 @@
             overflow-x: hidden;
         }
 
-        /* Animations */
         @keyframes floatGlow {
             0%, 100% { transform: translateY(0px) scale(1); filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.25)); }
-            50% { transform: translateY(-8px) scale(1.02); filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.45)); }
+            50% { transform: translateY(-8px) scale(1.02); filter: drop-shadow(0 0 28px rgba(212, 175, 55, 0.5)); }
         }
 
         @keyframes fadeInUp {
@@ -45,13 +43,14 @@
         }
 
         @keyframes pulseBorder {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
-            50% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
+            0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.45); }
+            50% { box-shadow: 0 0 0 12px rgba(212, 175, 55, 0); }
         }
 
-        /* ================= 1. WELCOME HOME SCREEN ================= -->
+        /* ================= 1. WELCOME HOME SCREEN ================= */
         #welcome-screen {
             min-height: 100vh;
+            width: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -60,25 +59,38 @@
             padding: 40px 6%;
             background: radial-gradient(circle at center, #1c1917 0%, #090b10 75%);
             position: relative;
-            transition: opacity 0.4s ease;
+        }
+
+        #welcome-screen::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(212, 175, 55, 0.12) 1px, transparent 1px);
+            background-size: 32px 32px;
+            opacity: 0.45;
+            pointer-events: none;
         }
 
         .welcome-content {
             max-width: 750px;
+            width: 100%;
             z-index: 2;
             animation: fadeInUp 0.8s ease-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .welcome-logo {
-            width: 160px;
-            height: 160px;
+            width: 155px;
+            height: 155px;
             object-fit: cover;
-            border-radius: 50%; /* Perfect Circle Logo */
+            border-radius: 50%;
             border: 3px solid var(--gold);
-            margin-bottom: 25px;
+            margin-bottom: 24px;
             animation: floatGlow 4s ease-in-out infinite;
             background-color: #161616;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
         }
 
         .location-pill {
@@ -86,17 +98,17 @@
             background: rgba(212, 175, 55, 0.12);
             color: var(--gold);
             border: 1px solid rgba(212, 175, 55, 0.35);
-            padding: 8px 20px;
+            padding: 7px 20px;
             border-radius: 30px;
-            font-size: 14px;
-            font-weight: 600;
+            font-size: 13px;
+            font-weight: 700;
             letter-spacing: 1px;
             margin-bottom: 18px;
             text-transform: uppercase;
         }
 
         .welcome-content h1 {
-            font-size: 38px;
+            font-size: 40px;
             font-weight: 800;
             margin-bottom: 16px;
             line-height: 1.25;
@@ -113,7 +125,7 @@
             color: var(--text-muted);
             font-size: 17px;
             max-width: 600px;
-            margin: 0 auto 35px;
+            margin: 0 auto 32px;
         }
 
         .highlights {
@@ -121,28 +133,29 @@
             justify-content: center;
             gap: 12px;
             flex-wrap: wrap;
-            margin-bottom: 40px;
+            margin-bottom: 38px;
         }
 
         .highlight-tag {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--border-color);
-            padding: 10px 18px;
+            padding: 9px 18px;
             border-radius: 10px;
             font-size: 14px;
-            color: #d1d5db;
+            color: #e5e7eb;
             font-weight: 500;
         }
 
         .btn-next {
             display: inline-flex;
             align-items: center;
-            gap: 12px;
+            justify-content: center;
+            gap: 10px;
             background: linear-gradient(135deg, #d4af37, #f59e0b);
             color: #090b10;
             font-size: 18px;
             font-weight: 800;
-            padding: 18px 42px;
+            padding: 16px 40px;
             border-radius: 50px;
             border: none;
             cursor: pointer;
@@ -155,11 +168,11 @@
             box-shadow: 0 10px 25px rgba(245, 158, 11, 0.4);
         }
 
-        /* ================= 2. SELECTION SCREEN (DECK CHOOSE) ================= */
+        /* ================= 2. SELECTION SCREEN (DESK CHOOSE) ================= */
         #selection-screen {
             display: none;
             min-height: 100vh;
-            padding: 40px 6%;
+            padding: 35px 6%;
             animation: fadeInUp 0.5s ease-out;
         }
 
@@ -168,7 +181,7 @@
             justify-content: space-between;
             align-items: center;
             max-width: 900px;
-            margin: 0 auto 40px;
+            margin: 0 auto 35px;
             padding-bottom: 15px;
             border-bottom: 1px solid var(--border-color);
         }
@@ -182,8 +195,8 @@
         }
 
         .brand-mini img {
-            width: 45px;
-            height: 45px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid var(--gold);
@@ -192,6 +205,7 @@
         .brand-mini div {
             font-size: 16px;
             font-weight: 800;
+            line-height: 1.2;
         }
 
         .brand-mini span {
@@ -199,6 +213,23 @@
             font-size: 10px;
             color: var(--gold);
             letter-spacing: 1px;
+        }
+
+        .btn-nav-small {
+            background: rgba(255, 255, 255, 0.08);
+            color: #ffffff;
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-nav-small:hover {
+            border-color: var(--gold);
+            color: var(--gold);
         }
 
         .selection-container {
@@ -216,20 +247,20 @@
         .selection-container p {
             color: var(--text-muted);
             font-size: 16px;
-            margin-bottom: 45px;
+            margin-bottom: 40px;
         }
 
         .desk-cards-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
+            gap: 28px;
         }
 
         .desk-card {
             background: linear-gradient(145deg, #131824, #0d111a);
             border: 2px solid var(--border-color);
             border-radius: 20px;
-            padding: 40px 30px;
+            padding: 40px 28px;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -238,7 +269,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 280px;
+            min-height: 270px;
         }
 
         .desk-card:hover {
@@ -249,8 +280,8 @@
         }
 
         .desk-icon {
-            font-size: 50px;
-            margin-bottom: 20px;
+            font-size: 52px;
+            margin-bottom: 18px;
         }
 
         .desk-card h3 {
@@ -262,7 +293,7 @@
         .desk-card p {
             color: var(--text-muted);
             font-size: 15px;
-            margin-bottom: 25px;
+            margin-bottom: 24px;
         }
 
         .btn-open-desk {
@@ -281,12 +312,12 @@
             color: #090b10;
         }
 
-        /* ================= 3. ACTIVE SERVICES SCREEN ================= -->
+        /* ================= 3. ACTIVE SERVICES SCREEN ================= */
         #services-screen {
             display: none;
             max-width: 850px;
             margin: 0 auto;
-            padding: 30px 5% 60px;
+            padding: 35px 5% 40px;
             animation: fadeInUp 0.5s ease-out;
         }
 
@@ -294,18 +325,20 @@
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 18px;
-            padding: 32px;
+            padding: 30px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-            margin-top: 25px;
+            margin-top: 20px;
         }
 
         .board-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding-bottom: 20px;
-            margin-bottom: 25px;
+            padding-bottom: 18px;
+            margin-bottom: 22px;
             border-bottom: 1px solid var(--border-color);
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         .board-title {
@@ -314,7 +347,7 @@
             color: #ffffff;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
 
         .region-tag {
@@ -343,17 +376,18 @@
             text-decoration: none;
             color: var(--text-main);
             transition: all 0.25s ease;
+            gap: 12px;
         }
 
         .service-item:hover {
             background-color: var(--card-hover);
             border-color: var(--gold);
-            transform: translateX(5px);
+            transform: translateX(4px);
         }
 
         .service-name {
             font-weight: 600;
-            font-size: 16px; /* Larger text for mobile clarity */
+            font-size: 16px;
         }
 
         .wa-action {
@@ -369,11 +403,15 @@
             white-space: nowrap;
         }
 
-        /* Useful Tools & Links Section */
+        /* ================= 4. TOOLS & FOOTER ================= */
+        #common-footer-area {
+            display: none;
+        }
+
         .tools-section {
             max-width: 900px;
-            margin: 60px auto 0;
-            padding-top: 40px;
+            margin: 40px auto 0;
+            padding: 40px 6% 0;
             border-top: 1px solid var(--border-color);
         }
 
@@ -420,7 +458,6 @@
             color: #ffffff;
         }
 
-        /* Footer */
         footer {
             margin-top: 70px;
             padding: 35px 6%;
@@ -448,7 +485,6 @@
             color: #6b7280;
         }
 
-        /* Responsive Mobile Adjustments */
         @media (max-width: 768px) {
             .desk-cards-grid { grid-template-columns: 1fr; }
             .welcome-content h1 { font-size: 30px; }
@@ -460,7 +496,7 @@
 </head>
 <body>
 
-    <!-- ================= 1. WELCOME HOME SCREEN ================= -->
+    <!-- 1. WELCOME HOME SCREEN -->
     <section id="welcome-screen">
         <div class="welcome-content">
             <img src="logo.jpg" alt="ATAVA Logo" class="welcome-logo">
@@ -480,7 +516,7 @@
         </div>
     </section>
 
-    <!-- ================= 2. DESK SELECTION SCREEN ================= -->
+    <!-- 2. DESK SELECTION SCREEN -->
     <section id="selection-screen">
         <div class="top-nav">
             <a href="#" class="brand-mini" onclick="goHome(); return false;">
@@ -490,7 +526,7 @@
                     <span>DIGITAL SERVICES</span>
                 </div>
             </a>
-            <button class="btn-next" style="padding: 8px 18px; font-size: 14px;" onclick="goHome()">Home</button>
+            <button class="btn-nav-small" onclick="goHome()">Home</button>
         </div>
 
         <div class="selection-container">
@@ -515,7 +551,7 @@
         </div>
     </section>
 
-    <!-- ================= 3. ACTIVE SERVICE BOARD SCREEN ================= -->
+    <!-- 3. ACTIVE SERVICE BOARD SCREEN -->
     <div id="services-screen">
         <div class="top-nav" style="max-width: 850px; margin-bottom: 20px;">
             <a href="#" class="brand-mini" onclick="goHome(); return false;">
@@ -526,18 +562,17 @@
                 </div>
             </a>
             <div style="display: flex; gap: 10px;">
-                <button class="btn-next" style="padding: 8px 16px; font-size: 13px;" onclick="showSelection()">&larr; Change Desk</button>
-                <button class="btn-next" style="padding: 8px 16px; font-size: 13px;" onclick="goHome()">Home</button>
+                <button class="btn-nav-small" onclick="showSelection()">&larr; Change Desk</button>
+                <button class="btn-nav-small" onclick="goHome()">Home</button>
             </div>
         </div>
 
-        <!-- Dynamic Service Board Will Load Here -->
         <div id="board-container"></div>
     </div>
 
-    <!-- ================= 4. TOOLS & FOOTER (Always Available on Services / Selection) ================= -->
-    <div id="common-footer-area" style="display: none;">
-        <div class="tools-section" style="padding: 0 6%;">
+    <!-- 4. TOOLS & FOOTER -->
+    <div id="common-footer-area">
+        <div class="tools-section">
             <div style="text-align: center; margin-bottom: 25px;">
                 <h2 style="font-size: 26px; margin-bottom: 6px;">Free Public Tools & Resources</h2>
                 <p style="color: var(--text-muted); font-size: 15px;">Helpful utilities provided by ATAVA</p>
@@ -614,7 +649,7 @@
         function showSelection() {
             document.getElementById('welcome-screen').style.display = 'none';
             document.getElementById('services-screen').style.display = 'none';
-            document.getElementById('common-footer-area').style.display = 'none';
+            document.getElementById('common-footer-area').style.display = 'block';
             
             const sel = document.getElementById('selection-screen');
             sel.style.display = 'block';
