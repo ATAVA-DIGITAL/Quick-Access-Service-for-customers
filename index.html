@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATAVA Digital Services & Trading | Kerala & UAE</title>
+    <style>
+        :root {
+            --bg-dark: #090d16;
+            --card-bg: #131b2e;
+            --card-hover: #1c2742;
+            --accent: #f59e0b;
+            --accent-hover: #d97706;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: #1e293b;
+            --whatsapp: #25D366;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 6%;
+            background-color: rgba(9, 13, 22, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            color: var(--text-main);
+        }
+
+        .logo span {
+            color: var(--accent);
+            display: block;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 24px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 140px 6% 80px;
+            text-align: center;
+            background: radial-gradient(circle at top, #1e1b4b 0%, var(--bg-dark) 65%);
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(245, 158, 11, 0.15);
+            color: var(--accent);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            max-width: 800px;
+            margin: 0 auto 18px;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 17px;
+            max-width: 620px;
+            margin: 0 auto 35px;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 26px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: #090d16;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .btn-outline {
+            border: 1px solid #374151;
+            color: var(--text-main);
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* Services Boards Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 6%;
+        }
+
+        .boards-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+            margin-top: 20px;
+        }
+
+        .service-board {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .board-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 18px;
+            margin-bottom: 22px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .board-title {
+            font-size: 22px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .region-tag {
+            font-size: 12px;
+            padding: 4px 10px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .service-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .service-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(9, 13, 22, 0.6);
+            padding: 14px 18px;
+            border-radius: 10px;
+            border: 1px solid transparent;
+            text-decoration: none;
+            color: var(--text-main);
+            transition: all 0.25s ease;
+        }
+
+        .service-item:hover {
+            background-color: var(--card-hover);
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .service-name {
+            font-weight: 500;
+            font-size: 15px;
+        }
+
+        .wa-action {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--whatsapp);
+            background: rgba(37, 211, 102, 0.1);
+            padding: 5px 10px;
+            border-radius: 6px;
+        }
+
+        /* Useful Tools & Links Section */
+        .tools-section {
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-heading h2 {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .section-heading p {
+            color: var(--text-muted);
+            font-size: 15px;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .tool-card {
+            background: linear-gradient(145deg, #131b2e, #0f1626);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 25px;
+            text-decoration: none;
+            color: var(--text-main);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .tool-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .tool-card h3 {
+            color: var(--accent);
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+
+        .tool-card p {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .tool-link-text {
+            font-size: 13px;
+            font-weight: 600;
+            color: #ffffff;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 80px;
+            padding: 40px 6%;
+            background-color: #05080f;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .footer-contacts {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .footer-contacts strong {
+            color: var(--text-main);
+        }
+
+        .copyright {
+            font-size: 13px;
+            color: #6b7280;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .boards-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 30px;
+            }
+            .service-board {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            ATAVA
+            <span>Digital Services & Trading</span>
+        </div>
+        <nav>
+            <a href="#kerala-services">Kerala / India</a>
+            <a href="#uae-services">UAE Services</a>
+            <a href="#useful-tools">Free Tools & Library</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="badge">Kerala • Umm Al Quwain (UAE)</div>
+        <h1>Fast & Reliable <span>Documentation & Visa</span> Services.</h1>
+        <p>Select the service you need below to connect directly with our team on WhatsApp for instant support and processing.</p>
+        <div class="hero-btns">
+            <a href="#kerala-services" class="btn btn-primary">Explore Services</a>
+            <a href="#useful-tools" class="btn btn-outline">Useful Tools & Links</a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="boards-wrapper">
+            
+            <!-- BOARD 1: KERALA / INDIA SERVICES -->
+            <div class="service-board" id="kerala-services">
+                <div class="board-header">
+                    <div class="board-title">🇮🇳 Kerala / India Works</div>
+                    <span class="region-tag">India Desk</span>
+                </div>
+                <div class="service-list" id="india-list">
+                    <!-- Services will be injected automatically via JavaScript -->
+                </div>
+            </div>
+
+            <!-- BOARD 2: UAE SERVICES -->
+            <div class="service-board" id="uae-services">
+                <div class="board-header">
+                    <div class="board-title">🇦🇪 UAE Visa & Typing</div>
+                    <span class="region-tag">UAE Desk</span>
+                </div>
+                <div class="service-list" id="uae-list">
+                    <!-- Services will be injected automatically via JavaScript -->
+                </div>
+            </div>
+
+        </div>
+
+        <!-- USEFUL TOOLS & LINKS -->
+        <section class="tools-section" id="useful-tools">
+            <div class="section-heading">
+                <h2>Free Public Tools & Resources</h2>
+                <p>Helpful utilities and digital resources provided by ATAVA Digital Services</p>
+            </div>
+
+            <div class="tools-grid">
+                <a href="https://atava-digital.github.io/NAMESLIP/" target="_blank" class="tool-card">
+                    <div>
+                        <h3>Student Name Slip Generator</h3>
+                        <p>Create and download customized, ready-to-print notebook name slips easily for free.</p>
+                    </div>
+                    <span class="tool-link-text">Open Tool &rarr;</span>
+                </a>
+
+                <a href="https://atava-digital.github.io/Splitwise/" target="_blank" class="tool-card">
+                    <div>
+                        <h3>Expense & Bill Splitter</h3>
+                        <p>Track shared expenses and calculate group splits effortlessly with our web utility.</p>
+                    </div>
+                    <span class="tool-link-text">Open Tool &rarr;</span>
+                </a>
+
+                <!-- Replace '#' with your ATAVA Islamic Library URL when ready -->
+                <a href="#" target="_blank" class="tool-card">
+                    <div>
+                        <h3>ATAVA Islamic Library</h3>
+                        <p>Access curated Islamic books, reading materials, and useful reference documents.</p>
+                    </div>
+                    <span class="tool-link-text">Visit Library &rarr;</span>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-contacts">
+            <div><strong>India WhatsApp:</strong> +91 99479 65744</div>
+            <div><strong>UAE WhatsApp:</strong> +971 56 628 7884</div>
+        </div>
+        <p class="copyright">&copy; 2026 ATAVA DIGITAL SERVICES & TRADING. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Automatic WhatsApp Links -->
+    <script>
+        const indiaPhone = "919947965744";
+        const uaePhone = "971566287884";
+
+        const indiaServices = [
+            "Passport (New / Renewal)",
+            "Driving License (New / Renewal)",
+            "PAN Card Services",
+            "Vehicle Insurance",
+            "Vehicle Permits",
+            "Ration Card Services",
+            "Flight Tickets Booking",
+            "Employment Registration",
+            "PSC Registration",
+            "Land Tax Payment",
+            "Building Tax Payment",
+            "Voter ID Services",
+            "e-District Kerala Services"
+        ];
+
+        const uaeServices = [
+            "Family Visa New — Child",
+            "Family Visa New — Wife",
+            "Family Visa Renewal — Wife",
+            "Family Visa Renewal — Child",
+            "Residence Visa Company New (Offer Letter)",
+            "Residence Visa Renew (Company)",
+            "New Visa for Domestic Worker",
+            "Renew Visa for Domestic Worker"
+        ];
+
+        function renderServices(services, containerId, phoneNumber, regionLabel) {
+            const container = document.getElementById(containerId);
+            services.forEach(service => {
+                const message = `Hello ATAVA, I would like to enquire about:\n*Region:* ${regionLabel}\n*Service:* ${service}`;
+                const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+                const link = document.createElement("a");
+                link.href = whatsappUrl;
+                link.target = "_blank";
+                link.className = "service-item";
+                link.innerHTML = `
+                    <span class="service-name">${service}</span>
+                    <span class="wa-action">WhatsApp &rarr;</span>
+                `;
+                container.appendChild(link);
+            });
+        }
+
+        // Render both boards
+        renderServices(indiaServices, "india-list", indiaPhone, "Kerala / India");
+        renderServices(uaeServices, "uae-list", uaePhone, "UAE");
+    </script>
+
+</body>
+</html>
