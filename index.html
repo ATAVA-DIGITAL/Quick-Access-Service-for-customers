@@ -213,7 +213,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 900px;
+            max-width: 1050px;
             margin: 0 auto 35px;
             padding-bottom: 15px;
             border-bottom: 1px solid var(--border-color);
@@ -266,7 +266,7 @@
         }
 
         .selection-container {
-            max-width: 900px;
+            max-width: 1050px;
             margin: 0 auto;
             text-align: center;
         }
@@ -285,15 +285,15 @@
 
         .desk-cards-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 28px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
         }
 
         .desk-card {
             background: linear-gradient(145deg, #131824, #0d111a);
             border: 2px solid var(--border-color);
             border-radius: 20px;
-            padding: 40px 28px;
+            padding: 36px 24px;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -313,19 +313,19 @@
         }
 
         .desk-icon {
-            font-size: 52px;
-            margin-bottom: 18px;
+            font-size: 48px;
+            margin-bottom: 16px;
         }
 
         .desk-card h3 {
-            font-size: 24px;
+            font-size: 22px;
             color: #ffffff;
             margin-bottom: 12px;
         }
 
         .desk-card p {
             color: var(--text-muted);
-            font-size: 15px;
+            font-size: 14px;
             margin-bottom: 24px;
         }
 
@@ -333,9 +333,9 @@
             background: rgba(212, 175, 55, 0.15);
             color: var(--gold);
             border: 1px solid var(--gold);
-            padding: 12px 28px;
+            padding: 11px 24px;
             border-radius: 30px;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 700;
             transition: all 0.2s;
         }
@@ -423,6 +423,14 @@
             font-size: 16px;
         }
 
+        .service-desc {
+            display: block;
+            font-size: 13px;
+            color: var(--text-muted);
+            font-weight: 400;
+            margin-top: 3px;
+        }
+
         .wa-action {
             display: flex;
             align-items: center;
@@ -436,59 +444,22 @@
             white-space: nowrap;
         }
 
-        /* ================= 4. TOOLS & FOOTER ================= */
+        .tool-action {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--gold);
+            background: rgba(212, 175, 55, 0.15);
+            padding: 8px 14px;
+            border-radius: 8px;
+            white-space: nowrap;
+        }
+
+        /* ================= 4. FOOTER ================= */
         #common-footer-area {
             display: none;
-        }
-
-        .tools-section {
-            max-width: 900px;
-            margin: 40px auto 0;
-            padding: 40px 6% 0;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 24px;
-            margin-top: 25px;
-        }
-
-        .tool-card {
-            background: linear-gradient(145deg, #151a26, #0e121b);
-            border: 1px solid var(--border-color);
-            border-radius: 14px;
-            padding: 24px;
-            text-decoration: none;
-            color: var(--text-main);
-            transition: all 0.3s;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .tool-card:hover {
-            border-color: var(--gold);
-            transform: translateY(-5px);
-        }
-
-        .tool-card h3 {
-            color: var(--gold);
-            font-size: 18px;
-            margin-bottom: 8px;
-        }
-
-        .tool-card p {
-            color: var(--text-muted);
-            font-size: 14px;
-            margin-bottom: 18px;
-        }
-
-        .tool-link-text {
-            font-size: 13px;
-            font-weight: 600;
-            color: #ffffff;
         }
 
         footer {
@@ -518,8 +489,11 @@
             color: #6b7280;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
             .desk-cards-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
             .welcome-content h1 { font-size: 30px; }
             .welcome-logo { width: 135px; height: 135px; }
             .service-board { padding: 20px; }
@@ -564,7 +538,7 @@
 
         <div class="selection-container">
             <h2>Select Your Service Desk</h2>
-            <p>Choose the region below to view and apply for your required services instantly via WhatsApp</p>
+            <p>Choose a board below to access our services or free public tools</p>
 
             <div class="desk-cards-grid">
                 <div class="desk-card" onclick="openDesk('india')">
@@ -579,6 +553,13 @@
                     <h3>UAE Visa & Typing</h3>
                     <p>Family Visas, Company Visas, Domestic Worker Visas & Typing</p>
                     <span class="btn-open-desk">Open UAE Desk &rarr;</span>
+                </div>
+
+                <div class="desk-card" onclick="openDesk('tools')">
+                    <div class="desk-icon">🛠️</div>
+                    <h3>Free Public Tools & Resources</h3>
+                    <p>Helpful utilities, Name Slip Generator, Splitter & Islamic Library</p>
+                    <span class="btn-open-desk">Open Tools &rarr;</span>
                 </div>
             </div>
         </div>
@@ -603,42 +584,8 @@
         <div id="board-container"></div>
     </div>
 
-    <!-- 4. TOOLS & FOOTER -->
+    <!-- 4. FOOTER -->
     <div id="common-footer-area">
-        <div class="tools-section">
-            <div style="text-align: center; margin-bottom: 25px;">
-                <h2 style="font-size: 26px; margin-bottom: 6px;">Free Public Tools & Resources</h2>
-                <p style="color: var(--text-muted); font-size: 15px;">Helpful utilities provided by ATAVA</p>
-            </div>
-
-            <div class="tools-grid">
-                <a href="https://atava-digital.github.io/NAMESLIP/" target="_blank" class="tool-card">
-                    <div>
-                        <h3>Student Name Slip Generator</h3>
-                        <p>Create and download customized, ready-to-print notebook name slips easily for free.</p>
-                    </div>
-                    <span class="tool-link-text">Open Tool &rarr;</span>
-                </a>
-
-                <a href="https://atava-digital.github.io/Splitwise/" target="_blank" class="tool-card">
-                    <div>
-                        <h3>Expense & Bill Splitter</h3>
-                        <p>Track shared expenses and calculate group splits effortlessly with our web utility.</p>
-                    </div>
-                    <span class="tool-link-text">Open Tool &rarr;</span>
-                </a>
-
-                <!-- Replace '#' with your ATAVA Islamic Library URL -->
-                <a href="#" target="_blank" class="tool-card">
-                    <div>
-                        <h3>ATAVA Islamic Library</h3>
-                        <p>Access curated Islamic books, reading materials, and useful reference documents.</p>
-                    </div>
-                    <span class="tool-link-text">Visit Library &rarr;</span>
-                </a>
-            </div>
-        </div>
-
         <footer>
             <div class="footer-contacts">
                 <div><strong>India WhatsApp:</strong> +91 99479 65744</div>
@@ -679,6 +626,28 @@
             "Renew Visa for Domestic Worker"
         ];
 
+        // പുതിയ പബ്ലിക് ലിങ്കുകൾ ഇവിടെ എളുപ്പത്തിൽ ചേർക്കാം
+        const publicTools = [
+            {
+                name: "Student Name Slip Generator",
+                desc: "Create and download customized, ready-to-print notebook name slips easily for free.",
+                url: "https://atava-digital.github.io/NAMESLIP/",
+                btnText: "Open Tool →"
+            },
+            {
+                name: "Expense & Bill Splitter",
+                desc: "Track shared expenses and calculate group splits effortlessly with our web utility.",
+                url: "https://atava-digital.github.io/Splitwise/",
+                btnText: "Open Tool →"
+            },
+            {
+                name: "ATAVA Islamic Library",
+                desc: "Access curated Islamic books, reading materials, and useful reference documents.",
+                url: "#", // നിങ്ങളുടെ ലൈബ്രറി ലിങ്ക് ഇവിടെ '#' മാറ്റി നൽകുക
+                btnText: "Visit Library →"
+            }
+        ];
+
         function showSelection() {
             document.getElementById('welcome-screen').style.display = 'none';
             document.getElementById('services-screen').style.display = 'none';
@@ -709,6 +678,34 @@
 
             const container = document.getElementById('board-container');
             container.innerHTML = '';
+
+            if (deskType === 'tools') {
+                let html = `
+                    <div class="service-board">
+                        <div class="board-header">
+                            <div class="board-title">🛠️ Free Public Tools & Resources</div>
+                            <span class="region-tag">Public Utilities</span>
+                        </div>
+                        <div class="service-list">
+                `;
+
+                publicTools.forEach(tool => {
+                    html += `
+                        <a href="${tool.url}" target="_blank" class="service-item">
+                            <div>
+                                <span class="service-name">${tool.name}</span>
+                                <span class="service-desc">${tool.desc}</span>
+                            </div>
+                            <span class="tool-action">${tool.btnText}</span>
+                        </a>
+                    `;
+                });
+
+                html += `</div></div>`;
+                container.innerHTML = html;
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                return;
+            }
 
             let title = "";
             let regionTag = "";
